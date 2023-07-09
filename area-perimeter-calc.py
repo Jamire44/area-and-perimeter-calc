@@ -48,7 +48,7 @@ shape = Shapes()
 
 
 def input_validation(input: int) -> int:
-       # try / catch 
+       # try / catch jamie
        if (int(input) and input.isNumberic()):
                 print("input is a number")
        else:
