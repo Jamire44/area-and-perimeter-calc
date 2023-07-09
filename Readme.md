@@ -1,3 +1,1 @@
-# This calculator will prompt the user to select what shape they would like to see the Area and Perimeter of the shape.
-# They would get to type in the dimensions and the calculator will tell them the exact measurements to 2 decimal places.
-# This will also include error handling, making sure the user enters a valid input.
+# This project asks the user what shape they would like to calculate the Area and Perimeter of, If they enter something wrong it will display an error message telling them to try again.

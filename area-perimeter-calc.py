@@ -55,7 +55,7 @@ def logic():
 
 
         # Prompting the user to pick a shape
-        choice = input("\nPlease choose which shape you would like to see the Area and Perimeter of : ")
+        choice = input("\nPlease choose which shape you would like to see the Area and Perimeter of (Make sure you select the number of the shape you would like to choose): ")
         
 
         # Checks if what is entered is a digit
@@ -105,5 +105,3 @@ def validate_input(prompt):
 shape = Shapes()
 
 logic()
-
-
