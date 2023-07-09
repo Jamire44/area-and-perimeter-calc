@@ -2,7 +2,7 @@ import math as M
 
 class Shapes:
 
-    def circleArea(self, r):
+    def circleArea(self, r: int):
         self.r = r
 
         area = M.pi * (r * r)
@@ -47,17 +47,31 @@ class Shapes:
 shape = Shapes()
 
 
+def input_validation(input: int) -> int:
+       # try / catch 
+       if (int(input) and input.isNumberic()):
+                print("input is a number")
+       else:
+                print("input is not a number")
+                quit()
+
+
+
+
 print("1. Circle")
 print("2. Square")
 print("3. Rectangle")
 
 choice = input("Please choose which shape you would like to see the Area and Perimeter of : ")
 
+input_validation(choice)
+
+
 if choice == "1":
     r = float(input("Please enter the radius of the circle: "))
     shape.circleArea(r)
     shape.circlePerimeter(r)
-    
+
 elif choice == "2":
     a = float(input("Please enter the length of one side in the square: "))
     shape.squareArea(a)
