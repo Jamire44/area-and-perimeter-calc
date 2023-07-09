@@ -1,25 +1,77 @@
-import math
+import math as M
+
+class Shapes:
+
+    def circleArea(self, r):
+        self.r = r
+
+        area = M.pi * (r * r)
+        print(f"The area of the circle is: {area}")
+
+    def circlePerimeter(self, r):
+        self.r = r
+
+        per = 2 * M.pi * r
+        print(f"The perimeter of the circle is: {per}")
 
 
-# Shape Selection: Users can choose a shape from a list (rectangle, circle, triangle) to calculate its area and perimeter accurately.
+    def squareArea(self, a):
+        self.a = a
+
+        area = a * a
+        print(f"The area of the square is {area}")
+        
+    def squarePerimeter(self, a):
+        self.a = a
+        
+        per = a * 4
+        print(f"The perimeter of the square is {per}")
+
+    def rectanglearea(self, l, w):
+        self.l = l
+        self.w = w
+
+        area = w * l
+        print(f"the area of this rectange is {area}")
 
 
-# Dimension Input: Users are prompted to enter the necessary dimensions for the selected shape (length and width for a rectangle, radius for a circle, base and height for a triangle) to ensure accurate calculations.
+    def rectanglePerimeter(self, l, w):
+        self.w = w
+        self.l = l
+
+        per = 2 * (l + w)
+        print(f"The perimeter of the rectangle is {per}")
 
 
-# Calculation Logic: The program accurately calculates the area and perimeter of the selected shape using the appropriate formulas.
+
+shape = Shapes()
 
 
-# Results Display: The calculated area and perimeter values are displayed clearly, including appropriate units of measurement, to facilitate easy interpretation.
+print("1. Circle")
+print("2. Square")
+print("3. Rectangle")
+
+choice = input("Please choose which shape you would like to see the Area and Perimeter of : ")
+
+if choice == "1":
+    r = float(input("Please enter the radius of the circle: "))
+    shape.circleArea(r)
+    shape.circlePerimeter(r)
+    
+elif choice == "2":
+    a = float(input("Please enter the length of one side in the square: "))
+    shape.squareArea(a)
+    shape.squarePerimeter(a)
+
+elif choice == "3":
+    l = float(input("Please enter the Length of the rectangle:"))
+    w = float(input("Please enter the Width of the rectangle:"))
+
+    shape.rectanglearea(l, w)
+    shape.rectanglePerimeter(l, w)
 
 
-# Error Handling: The program handles errors gracefully, providing clear error messages if users enter invalid dimensions and allowing them to correct the input for accurate calculations.
 
 
-# User-Friendly Interface: The program features an intuitive user interface with clear instructions and prompts, ensuring a seamless user experience.
 
 
-# Well-Structured Code: The code is well-structured and modular, with meaningful variable names and comments, enhancing readability and maintainability.
-
-
-#Comprehensive User Guide: A detailed user guide is provided, explaining how to effectively use the program, including step-by-step instructions for shape selection, dimension input, and result interpretation.
