@@ -45,6 +45,50 @@ class Shapes:
         print(f"The perimeter of the rectangle is {perimeter}\n")
 
 
+# Function that has a while loop to iterate over the answer of the user, if a number isnt entered the user will be prompt to try again
+def logic():
+    while True :
+        print("1. Circle")
+        print("2. Square")
+        print("3. Rectangle")
+        print("4. Exit")
+
+
+        # Prompting the user to pick a shape
+        choice = input("\nPlease choose which shape you would like to see the Area and Perimeter of : ")
+        
+
+        # Checks if what is entered is a digit
+        if choice.isdigit():
+
+            # If-elif-else to do what the user selects
+            if choice == "1":
+                radius = validate_input("\nPlease enter the radius of the circle: ")
+                shape.circleArea(radius)
+                shape.circlePerimeter(radius)
+
+            elif choice == "2":
+                area = validate_input("\nPlease enter the length of one side in the square: ")
+                shape.squareArea(area)
+                shape.squarePerimeter(area)
+
+            elif choice == "3":
+                length = validate_input("\nPlease enter the Length of the rectangle: ")
+                width = validate_input("\nPlease enter the Width of the rectangle: ")
+                shape.rectanglearea(length, width)
+                shape.rectanglePerimeter(length, width)
+
+            elif choice == "4":
+                print("Exiting...")
+                quit()
+
+            else:
+                print("\nYou have entered an invalid number\n")
+
+        else:
+            print("Number is not a digit\n")
+
+
 
 # Function to check if the user entered a number.
 # If user entered a number, Number will be allowed
@@ -60,45 +104,6 @@ def validate_input(prompt):
 
 shape = Shapes()
 
-
-# While loop to iterate over the answer of the user, if a number isnt entered the user will be prompt to try again
-while True :
-    print("1. Circle")
-    print("2. Square")
-    print("3. Rectangle")
-    print("4. Exit")
+logic()
 
 
-    # Prompting the user to pick a shape
-    choice = input("\nPlease choose which shape you would like to see the Area and Perimeter of : ")
-    
-
-    # Checks if what is entered is a digit
-    if choice.isdigit():
-
-        # If-elif-else to do what the user selects
-        if choice == "1":
-            radius = validate_input("\nPlease enter the radius of the circle: ")
-            shape.circleArea(radius)
-            shape.circlePerimeter(radius)
-
-        elif choice == "2":
-            area = validate_input("\nPlease enter the length of one side in the square: ")
-            shape.squareArea(area)
-            shape.squarePerimeter(area)
-
-        elif choice == "3":
-            length = validate_input("\nPlease enter the Length of the rectangle: ")
-            width = validate_input("\nPlease enter the Width of the rectangle: ")
-            shape.rectanglearea(length, width)
-            shape.rectanglePerimeter(length, width)
-
-        elif choice == "4":
-            print("Exiting...")
-            quit()
-
-        else:
-            print("\nYou have entered an invalid number\n")
-
-    else:
-        print("Number is not a digit\n")
