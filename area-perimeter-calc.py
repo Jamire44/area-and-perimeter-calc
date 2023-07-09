@@ -1,63 +1,67 @@
 import math as M
 
 
-
+# Class for all of the Area and Perimeter calculations
 class Shapes:
 
-    
+    def circleArea(self, radius):
+        self.radius = radius
 
-    def circleArea(self, r):
-        self.r = r
+        area = M.pi * (radius * radius)
+        print(f"\nThe area of the circle is {area}\n")
 
-        area = M.pi * (r * r)
-        print(f"The area of the circle is: {area}")
+    def circlePerimeter(self, radius):
+        self.radius = radius
 
-    def circlePerimeter(self, r):
-        self.r = r
-
-        per = 2 * M.pi * r
-        print(f"The perimeter of the circle is: {per}")
+        perimeter = 2 * M.pi * radius
+        print(f"\nThe perimeter of the circle is {perimeter}\n")
 
 
-    def squareArea(self, a):
-        self.a = a
+    def squareArea(self, length):
+        self.length = length
 
-        area = a * a
-        print(f"The area of the square is {area}")
+        area = length * length
+        print(f"\nThe area of the square is {area}\n")
         
-    def squarePerimeter(self, a):
-        self.a = a
+    def squarePerimeter(self, length):
+        self.length = length
         
-        per = a * 4
-        print(f"The perimeter of the square is {per}")
+        perimeter = length * 4
+        print(f"\nThe perimeter of the square is {perimeter}\n")
 
-    def rectanglearea(self, l, w):
-        self.l = l
-        self.w = w
+    def rectanglearea(self, length, width):
+        self.length = length
+        self.width = width
 
-        area = w * l
-        print(f"the area of this rectange is {area}")
+        area = width * length
+        print(f"\nThe area of this rectange is {area}\n")
 
 
-    def rectanglePerimeter(self, l, w):
-        self.w = w
-        self.l = l
+    def rectanglePerimeter(self, length, width):
+        self.width = width
+        self.length = length
 
-        per = 2 * (l + w)
-        print(f"The perimeter of the rectangle is {per}")
+        perimeter = 2 * (length + width)
+        print(f"The perimeter of the rectangle is {perimeter}\n")
 
+
+
+# Function to check if the user entered a number.
+# If user entered a number, Number will be allowed
+# If user entered something else, They will be prompted to enter a valid number
 def validate_input(prompt):
     while True:
         try:
             value = int(input(prompt))
             return value
         except ValueError:
-            print("Invalid input. Please enter a valid number.")
+            print("Invalid input. Please enter a valid number.\n")
+
 
 shape = Shapes()
 
 
-
+# While loop to iterate over the answer of the user, if a number isnt entered the user will be prompt to try again
 while True :
     print("1. Circle")
     print("2. Square")
@@ -65,26 +69,36 @@ while True :
     print("4. Exit")
 
 
-    choice = input("Please choose which shape you would like to see the Area and Perimeter of : ")
+    # Prompting the user to pick a shape
+    choice = input("\nPlease choose which shape you would like to see the Area and Perimeter of : ")
     
+
+    # Checks if what is entered is a digit
     if choice.isdigit():
+
+        # If-elif-else to do what the user selects
         if choice == "1":
-            r = validate_input("Please enter the radius of the circle: ")
-            shape.circleArea(r)
-            shape.circlePerimeter(r)
+            radius = validate_input("\nPlease enter the radius of the circle: ")
+            shape.circleArea(radius)
+            shape.circlePerimeter(radius)
+
         elif choice == "2":
-            a = validate_input("Please enter the length of one side in the square: ")
-            shape.squareArea(a)
-            shape.squarePerimeter(a)
+            area = validate_input("\nPlease enter the length of one side in the square: ")
+            shape.squareArea(area)
+            shape.squarePerimeter(area)
+
         elif choice == "3":
-            l = validate_input("Please enter the Length of the rectangle: ")
-            w = validate_input("Please enter the Width of the rectangle: ")
-            shape.rectanglearea(l, w)
-            shape.rectanglePerimeter(l, w)
+            length = validate_input("\nPlease enter the Length of the rectangle: ")
+            width = validate_input("\nPlease enter the Width of the rectangle: ")
+            shape.rectanglearea(length, width)
+            shape.rectanglePerimeter(length, width)
+
         elif choice == "4":
             print("Exiting...")
             quit()
+
         else:
-            print("You have entered an invalid number")
+            print("\nYou have entered an invalid number\n")
+
     else:
-        print("Number is not a digit")
+        print("Number is not a digit\n")
