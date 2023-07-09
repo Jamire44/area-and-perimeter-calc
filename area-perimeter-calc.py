@@ -46,32 +46,32 @@ class Shapes:
 
 shape = Shapes()
 
+o = True
 
-print("1. Circle")
-print("2. Square")
-print("3. Rectangle")
+while o:
+    print("1. Circle")
+    print("2. Square")
+    print("3. Rectangle")
 
-choice = input("Please choose which shape you would like to see the Area and Perimeter of : ")
-
-if choice == "1":
-    r = float(input("Please enter the radius of the circle: "))
-    shape.circleArea(r)
-    shape.circlePerimeter(r)
+    choice = input("Please choose which shape you would like to see the Area and Perimeter of : ")
     
-elif choice == "2":
-    a = float(input("Please enter the length of one side in the square: "))
-    shape.squareArea(a)
-    shape.squarePerimeter(a)
+    if choice == "1" and choice.isdigit():
+            r = float(input("Please enter the radius of the circle: "))
+            shape.circleArea(r)
+            shape.circlePerimeter(r)
+            
+    elif choice == "2" and choice.isdigit():
+            a = float(input("Please enter the length of one side in the square: "))
+            shape.squareArea(a)
+            shape.squarePerimeter(a)
 
-elif choice == "3":
-    l = float(input("Please enter the Length of the rectangle:"))
-    w = float(input("Please enter the Width of the rectangle:"))
+    elif choice == "3" and choice.isdigit():
+            l = float(input("Please enter the Length of the rectangle:"))
+            w = float(input("Please enter the Width of the rectangle:"))
 
-    shape.rectanglearea(l, w)
-    shape.rectanglePerimeter(l, w)
+            shape.rectanglearea(l, w)
+            shape.rectanglePerimeter(l, w)
 
-
-
-
-
+    else: 
+            print("You have enter an invalid number")
 
