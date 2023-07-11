@@ -17,12 +17,12 @@ class Circle(Shapes):
 
     def calculate_area(self):
         area = M.pi * (self.radius * self.radius)
-        print(f"\nThe area of the circle is {area}\n")
+        return area
 
     def calculate_perimeter(self):
         perimeter = 2 * M.pi * self.radius
-        print(f"\nThe perimeter of the circle is {perimeter}\n")
-
+        return perimeter
+    
 class Square(Shapes):
 
     def __init__(self, length):
@@ -31,13 +31,13 @@ class Square(Shapes):
 
     def calculate_area(self):
         area = self.length * self.length
-        print(f"\nThe area of the square is {area}\n")
-        
+        return area
+
     def calculate_perimeter(self):
         self.length = self.length
         
         perimeter = self.length * 4
-        print(f"\nThe perimeter of the square is {perimeter}\n")
+        return perimeter
 
 class Rectangle(Shapes):
 
@@ -47,9 +47,43 @@ class Rectangle(Shapes):
 
     def calculate_area(self):
         area = self.width * self.length
-        print(f"\nThe area of this rectange is {area}\n")
-
+        return area
 
     def calculate_perimeter(self):
         perimeter = 2 * (self.length + self.width)
-        print(f"The perimeter of the rectangle is {perimeter}\n")
+        return perimeter
+
+class TestShapes(unittest.TestCase):
+
+    def test_circle_area(self):
+        circle = Circle(5)
+        self.assertAlmostEqual(circle.calculate_area(), M.pi * (5 * 5))
+
+    def test_circle_perimeter(self):
+        circle = Circle(5)
+        self.assertAlmostEqual(circle.calculate_perimeter(), 2 * M.pi * 5)
+
+    def test_square_area(self):
+        square = Square(9)
+        self.assertAlmostEqual(square.calculate_area(), 9 * 9)
+
+    def test_square_perimeter(self):
+        square = Square(4)
+        self.assertAlmostEqual(square.calculate_perimeter(), 4 * 4)
+
+    def test_rectangle_area(self):
+        rectangle = Rectangle(6,1112)
+        self.assertAlmostEqual(rectangle.calculate_area(), 6 * 1112)
+
+    def test_rectangle_perimeter(self):
+        rectangle = Rectangle(6, 9)
+        self.assertAlmostEqual(rectangle.calculate_perimeter(), 2 * (6 + 9))
+
+
+
+
+
+
+
+if __name__ == '__main__':
+    unittest.main()
