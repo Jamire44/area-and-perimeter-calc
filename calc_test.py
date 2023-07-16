@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import patch
 import math as M
 
 # Class for all of the Area and Perimeter calculations
@@ -57,6 +58,23 @@ class Rectangle(Shapes):
 
 class TestShapes(unittest.TestCase):
 
+    class MockShape(Shapes):
+        def calculate_area(self):
+            return 10
+        
+        def calculate_perimeter(self):
+            return 20
+        
+    def test_calculate_area(self):
+        shape = self.MockShape()
+        result = shape.calculate_area()
+        self.assertEqual(result, 10)
+
+    def test_calculate_perimeter(self):
+        shape = self.MockShape()
+        result = shape.calculate_perimeter()
+        self.assertEqual(result, 20)
+
     def test_circle_area(self):
         circle = Circle(5)
         self.assertAlmostEqual(circle.calculate_area(), M.pi * (5 * 5))
@@ -81,6 +99,26 @@ class TestShapes(unittest.TestCase):
         rectangle = Rectangle(6, 9)
         self.assertAlmostEqual(rectangle.calculate_perimeter(), 2 * (6 + 9))
 
+def validate_input(prompt):
+    while True:
+        try:
+            value = int(input(prompt))
+            return value
+        except ValueError:
+            print("Invalid input. Please enter a valid number.\n")
+
+
+class TestValidateInput(unittest.TestCase):
+    def test_valid_input(self):
+        prompt = "Enter a number: "
+        user_input = "123"
+        expected_output = 123
+
+        with patch('builtins.input', return_value = user_input):
+            actual_output = validate_input(prompt)
+
+            self.assertEqual(actual_output, expected_output)
+         
 
 if __name__ == '__main__':
     unittest.main()
